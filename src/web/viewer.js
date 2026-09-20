@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
-import helvetikerFontData from "./helvetiker_regular.typeface.json";
+import helvetikerFontData from "./helvetiker_regular.typeface.json.gz";
 import { FragmentsModels } from "@thatopen/fragments";
 
 const data = JSON.parse(document.getElementById("ifc-data").textContent);
