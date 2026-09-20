@@ -1,0 +1,36 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Node.js
+node_modules/
+
+# Generated browser bundles and portable builds
+dist/
+dist-portable/
+.build/
+tmp/
+output/
+
+# IFC and generated viewer data
+samples/
+*.ifc
+*.ifczip
+*.frag
+*.html
+
+# Local analysis and working material
+.tmp/
+research_repos/
+REFERENCE_ANALYSIS.md
+Microsoft/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

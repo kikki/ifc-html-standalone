@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ifc-html-generator"
+version = "1.0.0"
+description = "Create one fully offline HTML model viewer from one or more validated IFC files"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "dearpygui==2.1.1",
+  "ifcopenshell==0.8.5",
+]
+
+[project.optional-dependencies]
+build = [
+  "pyinstaller==6.16.0",
+]
+
+[project.scripts]
+ifc-html = "ifc_html.cli:main"
+ifc-html-gui = "ifc_html.gui:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
