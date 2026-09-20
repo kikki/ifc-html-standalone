@@ -1,0 +1,15 @@
+﻿import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { IfcImporter } from "@thatopen/fragments";
+const [input, output]=process.argv.slice(2);
+if(!input||!output) throw new Error("Usage: node convert-ifc.mjs input.ifc output.frag");
+const here=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(here,"../..");
+const importer=new IfcImporter();
+importer.wasm={path:path.join(root,"node_modules/web-ifc/")+path.sep,absolute:true};
+importer.includeUniqueAttributes=true;
+const bytes=new Uint8Array(await fs.readFile(input));
+const fragments=await importer.process({bytes,raw:false});
+await fs.writeFile(output,fragments);
+console.log(JSON.stringify({input,output,bytes:fragments.byteLength}));
