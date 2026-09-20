@@ -57,6 +57,26 @@ After conversion, the application verifies:
 
 Unsupported `IfcSurfaceCurveSweptAreaSolid` bodies are tessellated in a temporary IFC copy. The original IFC, GlobalId, Express ID, properties and spatial relationships are preserved. A failed fallback aborts conversion instead of producing silently missing geometry.
 
+## Functionality preview
+
+### Generator and IFC preflight
+
+The desktop application collects one or more IFC models, checks each readable file with IfcOpenShell and reports its schema, product count and spatial-structure status before conversion. Viewer title, optional author information and initial flight speed are configured in the same interface.
+
+![IFC HTML Generator with validated IFC models](docs/images/generator-preflight.png)
+
+### Offline multi-model viewer
+
+The generated HTML opens directly from `file://`. It combines the embedded models in one 3D scene and provides independent model visibility, a hierarchical model and spatial tree, IFC grids, element selection and property tabs.
+
+![Standalone viewer with multiple embedded IFC models and spatial tree](docs/images/viewer-model-structure.png)
+
+### Navigation and section tool
+
+The viewer supports orbit navigation, optional flight-mouse navigation and frame-rate-independent WASD movement with configurable speed. Six independent clipping controls cut the model from the positive and negative X, Y and Z directions.
+
+![Standalone viewer with six-sided section controls](docs/images/viewer-section-tool.png)
+
 ## Viewer functions
 
 - Multiple IFC models with independent visibility.
@@ -68,6 +88,12 @@ Unsupported `IfcSurfaceCurveSweptAreaSolid` bodies are tessellated in a temporar
 - Orbit navigation and optional flight-mouse navigation.
 - Frame-rate-independent WASD movement with configurable speed.
 - Fully offline classic Blob worker for direct `file://` use.
+
+## Standalone HTML example
+
+Download [Free HTML Model Viewer](examples/html/Free-HTML-Model-Viewer.html) and open it locally in a current Chrome, Edge or Firefox browser. The example is intentionally large because all viewer code, resources, metadata and model fragments are embedded in this single offline HTML file.
+
+The IFC sample models used to create this example originate from [youshengCode/IfcSampleFiles](https://github.com/youshengCode/IfcSampleFiles). The source IFC files are not included in this repository.
 
 ## Development setup
 
